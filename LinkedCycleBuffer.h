@@ -53,6 +53,18 @@ public:
 		return item;
 	}
 
+	virtual T operator[](unsigned index) const override
+	{
+		if (index >= count)
+			throw std::exception("Wrong index");
+
+		Node* curNode = first;
+		for (int i = 0; i < index; i++)
+			curNode = curNode->next;
+
+		return curNode->val;
+	}
+
 	virtual void PrintAllMemory()
 	{
 		Node* curNode = first;

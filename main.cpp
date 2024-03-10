@@ -57,5 +57,18 @@ int main()
 
 	Sort(arr, n);
 
+	CycleBuffer<int>* vc;
+	vc = new LinkedCycleBuffer<int>(4);
+	vc->Add(1);
+	vc->Add(2);
+	vc->Add(3);
+	vc->Add(4);
+	vc->Pop();
+	vc->Pop();
+	vc->Pop();
+	vc->Add(5);
+
+	std::cout << (*vc)[2] << std::endl;
+
 	return 0;
 }

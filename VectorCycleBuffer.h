@@ -43,6 +43,14 @@ public:
 		return item;
 	}
 
+	virtual T operator[](unsigned index) const override
+	{
+		if (index >= count)
+			throw std::exception("Wrong index");
+
+		return instance[(firstInd + index) % capacity];
+	}
+
 	virtual void Reset()
 	{
 		firstInd = 0;
